@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Dashboard{% endblock %}
+
+{% block space %}
+
+<div>
+    <h1 class="heading big-text">Hi {{ user.username }}</h1>
+    <h2 class="heading italics big-text ">welcome to your dashboard</h2>
+
+    <div class="textbox button-text">
+        <p>This is where all your information will be displayed</p>
+    </div>
+    
+
+    <div align="center">
+
+        <h1 align="center" class="heading big-text">Notes</h1>
+        <ul  class="button" id="notes">
+            {% for note in user.notes %}
+            <li class="button-text">{{ note.data }} </li>
+            <button type="button" class="button-text" id="crossbutton"onClick="deleteNote({{ note.id }})"><span id="crossbutton" aria-hidden="true">&#xd7;</button>
+            {% endfor %}
+            
+                        
+                 
+
+        </ul>
+        <form method="POST">
+            <textarea align="center" name="note" id="note" class="form-control | translucent-box"></textarea>
+            <div align="center">
+                <button type="submit" class="button button-text">Add note</button>
+  
+  
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+{% endblock %}

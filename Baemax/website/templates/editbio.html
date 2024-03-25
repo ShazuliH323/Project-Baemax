@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block title %}editBio{% endblock %}
+
+{% block space %}
+<div >
+    <span class="heading big-text">Edit your bio</span>
+    
+    <div class="small-text" style="padding: 2em;">
+        <p>this information is public</p>
+    </div>
+</div>
+<form method="POST" id="mainF">
+    <div class="translucent-box " id="align-half" >
+
+        <container >   
+            <div>
+                <label for="text" class="small-text">fullname</p>
+                <input type="text" class="form-control | button" id="fullname" name="fullname" placeholder="Enter fullname"  value="{{ fullname }}">
+            </div>
+            
+            <div>
+                <label for="text" class="small-text">job</p>
+                <input type="text" class="form-control | button" id="job" name="job" placeholder="Enter your job" value="{{ job }}">
+            </div>
+            
+            <div>
+                <label for="text" class="small-text">bio</p>
+                <textarea class="form-control | textbox textarea" id="bio" name="bio" form="mainF"placeholder="Write a bit about yourself"></textarea>
+            </div>
+
+            
+        </container> 
+
+</form>    
+        <container class="align-right">
+
+            
+            <ul  class="translucent-box" id="bioedit">
+                
+                <h1 align="center" class=" small-text">qualifications</h1>
+                <div class="grid">
+                
+                    
+                    <div>
+                        <label for="text" class="small-text">job</p>
+                        <input type="text" class="form-control | button" id="q" name="q" placeholder="Enter your qualifications" >
+                    </div>
+                    
+                    {% for qual in user.qualifications %}
+                    <div class="button-text textbox">{{ qual.qualification }}
+                        <button type="button" class="button-text" id="crossbutton"onClick="deleteQualification({{ qual.id }})"><span id="crossbutton" aria-hidden="true">&#xd7;</button>
+                    </div>
+                    
+                    {% endfor %}
+                    
+                
+                         
+                
+
+                
+                </div>
+               
+            </ul>
+            
+        </container>
+
+        <container style="display: flex; flex-direction: column-reverse;">
+            <div class="row">
+        
+        
+            
+                <div >
+                    <button type="submit" class="textbox button-text bg-clr-blue"id="loginbutton">
+                        <p>Save changes</p>
+                    </button>>
+                    
+                </div>                        
+                
+            
+            </div>
+        </container>
+
+
+        
+    </div>
+
+{% endblock %}

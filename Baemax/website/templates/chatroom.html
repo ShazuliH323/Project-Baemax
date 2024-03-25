@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Chatroom{% endblock %}
+
+
+{% block space %}
+
+<div class="align-center">
+    <h1 class="heading ">Chatroom dashboard</h1>
+    <div  class="translucent-box " id="chatroomBox">
+        <form align="center" method="POST">
+            <h2 class="small-text">Enter a chatroom</h2>
+            <div align="center">
+                <label class="button-text "> Enter name: </label>
+                <input id="chatroomEntry" class="translucent-box bg-clr-primary button-text" type="text" placeholder="pick a name" name="name" value="{{ name }}"/>
+
+            </div>
+            <div class="join" align="center">
+                <input id="chatroomEntry" class="translucent-box bg-clr-primary button-text" type="text" placeholder="Room code" name="code" value="{{ code }}"/>
+                <button type="submit " name="join" class=" button button-text" id="chatroomButton">Join a room</button>
+            </div>
+            <div>
+                <button type="submit " name="create" class=" button button-text" id="chatroomButton">Create a room</button>
+            </div>
+            <div>
+                <button type="submit " name="search" class=" button button-text" id="chatroomButton">Search for user</button>
+            </div>
+            <div>
+                <button type="submit" class="button button-text" name="gen_rand">Generate random</button>
+            </div>
+            
+        </form>
+
+
+
+    </div>
+    
+    {% if error %}
+    <div class="box bg-clr-red button-text">
+        {{ error }}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

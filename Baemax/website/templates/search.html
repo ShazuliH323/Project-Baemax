@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block title %}Search{% endblock %}
+
+{% block space %}
+<div>
+  <div>
+    <h1 class="big-text heading">Waitingroom</h1>
+    <h2 class="small-text">Chat room: {{code}}</h2>
+    <div id="search" class="small-text messages"></div>
+    
+  </div>
+  <div class="align-right">
+    <input type="text" class="translucent-box button-text" id="searchbox" placeholder="Search for online users here" name="q" hx-get="/resultofsearch" hx-trigger="keyup changed delay:500ms" hx-target="#results">
+  </div class="small-text">
+  <form method="post" >
+    
+  </form>
+  <div class="table translucent-box small-text" id="results">
+      
+      
+      
+  
+    
+    
+
+    
+</div>
+
+<script type="text/javascript">
+    var socketio = io();
+  
+    const messages = document.getElementById("search");
+  
+    const createMessage = (name, msg, user, email) => {
+      const content = `
+      <div class="text">
+        <p>
+            <strong>${name}</strong>: ${msg}
+        </p>
+        <span class="muted">
+            ${new Date().toLocaleString()}
+        </span>
+
+        
+      </div>
+      `;
+      messages.innerHTML += content;
+      console.log("name:")
+      console.log({msg})
+      
+
+    };
+    
+    socketio.on("message", (data) => {
+      createMessage(data.name, data.message);
+    });
+
+    socket.on('redirect', function (data) {
+      window.location = data.url;
+    });
+</script>
+{% endblock %}

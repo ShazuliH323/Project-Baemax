@@ -1,0 +1,37 @@
+
+
+{% for result in results %}
+<div class="container2">
+    <div class="card2">
+      <div class="front2 button-text" style="text-align: center; padding-block: 5em;">
+       
+        <p class="big-text">{{ result.job }}</p>
+        <p>{{ result.fullname }}</p>
+
+        
+
+      </div>
+      <div class="back2 button-text">
+        <p style="text-align: center; padding-inline: 2em;">{{ result.bio }}</p>
+        
+        <div class="button-text" style="display: flex; flex-direction: row; gap: 1rem;">
+            {% for i in qual%}
+            
+            {% if i.user_id == result.user_id and i.qualification|string() != "None"|string() %}
+                <div>
+                    
+                    <p class="button-text">{{ i.qualification }}</p>
+                </div>
+                
+                
+            {% endif %}
+            
+            
+        {% endfor %}
+        </div>
+        
+      </div>
+    </div>
+  </div>
+{% endfor %}
+

@@ -1,0 +1,725 @@
+
+:root {
+    --clr-btn: #FFFFFF;
+    --clr-red:#FFACAC;
+    --clr-blue: #ACD7FF;
+    --clr-yellow:#FFEDAC;
+    --clr-primary: #EEEBDF;
+    --clr-accent: #8D8080;
+    --clr-shadow:  rgba(255, 56, 29, 0.30);
+    
+    --ff-primary:'Space Mono', monospace;
+   
+
+    --ff-body: var(--ff-primary);
+    --ff-heading: var(--ff-primary);
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-verybig: 18.5rem; 
+    --fs-big:  7.5rem; 
+    --fs-mobilenorm: 5rem;
+    --fs-norm: 2.5rem; 
+    --fs-small: 1.5rem;     
+
+    
+}
+
+
+
+/* Box sizing rules */
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  padding: 1%;
+  margin-inline-end: 3em;
+  background-image:url("/static/images/Group 2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  overflow-x: hidden ;
+  
+}
+
+
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+a {
+    text-decoration: none;
+}
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+  height: 25em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.even-columns {
+    display: grid;
+    gap: 1em;
+    width: fit-content;
+    
+}
+
+.align-center {
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    vertical-align: middle;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0.75em;
+}
+@media (min-width: 80em) {
+
+    :root {
+        --fs-verybig: 16rem; 
+        --fs-big:  9rem; 
+        --fs-regularheading: 6rem;
+        --fs-norm: 1.5rem; 
+        --fs-small: 0.81rem;           
+    }
+    .even-columns {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        
+    }
+}
+#searchbox {
+    min-width: 50%;
+    opacity: 0.7;
+    
+}
+#searchbox:hover {
+    opacity: 1;
+}
+.error {
+    background-color: var(--clr-red);
+    opacity: 0.6;
+    padding: 0.6em;
+    margin-bottom: 1em;
+    width: 100%;
+    height: fit-content;
+    border-radius: 0.5rem;
+    text-align: center;
+    
+}
+.big-heading {
+    font-size: var(--fs-big);
+}
+.big-text {
+    font-size: var(--fs-regularheading);
+}
+
+.big-text {
+    font-size: var(--fs-norm);
+}
+.large-heading {
+    color: var(--clr-primary);
+    text-shadow: 1px 10px 4px rgba(255, 56, 29, 0.30);
+    font-family: Space Mono;
+    font-size: var(--fs-verybig);
+    font-style: normal;
+    font-weight: var(--fw-bold);
+    line-height: 0.8;
+    
+}
+
+.heading {
+    color: var(--clr-primary);
+    text-shadow: 1px 10px 4px rgba(255, 56, 29, 0.30);
+    font-family: Space Mono;
+    
+    font-style: normal;
+    font-weight: 700;
+    line-height: 0.8;
+    
+}
+
+#loginbutton {
+    opacity: 0.7;
+
+}
+
+#loginbutton:hover,
+#loginbutton:focus-visible  {
+    opacity: 1;
+}
+.button-text {
+    color: var(--clr-accent);
+    font-family: var(--ff-body);
+    
+    font-weight: 700;
+    line-height: normal;   
+}
+
+#crossbutton {
+    padding: 0;
+    border: none;
+    background: none;
+}
+.small-text {
+    color: var(--clr-btn);
+    text-shadow: 1px 3px 4px rgba(255, 56, 29, 0.30);
+    font-family: Space Mono;
+    font-style: var(--fs-small);
+    font-style: normal;
+    font-weight: var(--fw-bold);
+    line-height: normal;   
+}
+
+.exclusion {
+    mix-blend-mode: exclusion;
+}
+
+.italics {
+    font-style: italic;
+}
+
+.multiply {
+    mix-blend-mode: multiply;
+}
+
+.box {
+    cursor: pointer;
+    border-radius: 1.25rem;
+    box-shadow: 0px 4px 4px 0px var(--clr-shadow) inset, 0px 4px 4px 0px var(--clr-shadow);
+    min-width: fit-content ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6em;
+    aspect-ratio: 1;
+    text-align: center;
+    margin-inline: 1em;
+    margin-block: 1em;
+    opacity: .71;
+    
+    
+}
+#align-half {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: stretch;
+}
+#loginpageinfo {
+    margin-block-start: 3em;
+    margin-inline-start: 2em;
+}
+
+
+.translucent-box {
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.50,),0.5;
+    mix-blend-mode: screen;
+    box-shadow: 0px 4px 4px 0px var(--clr-shadow) inset, 0px 4px 4px 0px #BA9065;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 1em;
+    margin-block: 3em;
+    margin-inline: 2em;
+    padding-inline: 1em;
+}
+.textbox {
+    border-radius: 1.25rem;
+    background: var(--clr-primary); 
+    box-shadow: 0px 4px 4px 0px var(--clr-shadow) inset, 0px 4px 4px 0px #BA9065;    
+    height: 4em;
+    text-align: center;
+    width: fit-content;
+    padding: 1em;
+    margin: 1em;
+    opacity: .90;
+
+}
+.fadingMsg {
+    animation: slide-up 1.25s forwards;
+  animation-delay: 1.25s;
+  -webkit-animation-delay: 1.25s;
+  
+  width: fit-content;
+  height: 10em;
+  padding: 2em;
+}
+.align-right {
+        
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: flex-end;
+    }
+
+.bg-clr-blue {
+    background: var(--clr-blue);
+}
+.bg-clr-red {
+    background: var(--clr-red);
+}
+.bg-clr-yellow {
+    background: var(--clr-yellow);
+}
+
+.bg-clr-primary {
+    background: var(--clr-primary);
+}
+
+.bg-clr-accent {
+    background: var(--clr-accent);
+}
+
+.border {
+    border: 0.15rem solid var(--clr-btn);
+    max-width: 15em;
+    max-height: fit-content;
+    padding: .5em;
+
+
+}
+.contains {
+    
+    width: 15em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20em;
+    perspective: 800px;
+    
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+    
+
+}
+.contains:hover  > .card,
+.contains:focus-visible  > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    
+}
+
+.front {
+    background-color: var(--clr-primary);
+
+}
+.back {
+   
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    
+}
+.button {
+    cursor: pointer;
+    background: var(--clr-btn);
+    box-shadow: 3px 10px 4px 0px #AA794C;
+    min-width: 18em;
+    width: fit-cocardntent;
+    padding-inline: 3rem;
+    padding-block: 1rem;
+    border: var(--clr-accent);
+    opacity: 0.6;
+    margin: 0.3em;
+
+}
+
+.button:hover,
+.button:focus-visible {
+    background-color: var(--clr-primary);
+    opacity: 1;
+}
+
+.box:hover,
+.box:focus-visible {
+    opacity: 1;
+    box-shadow: 3px 6px 4px 0px var(--clr-shadow);
+}
+
+@media only screen and (max-width: 1500px) {
+    
+
+    .big-text {
+        font-size: 1.7rem;
+    }
+
+    body {
+        
+        background-image: url("/static/images/mobilebay.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        min-width: 100%;
+        min-height: 150vh;
+                
+    }
+
+    .button {
+        width: 8%;
+        text-align: center;
+        padding: 0.7em;
+        font-size: 2rem;
+        margin: 1em;
+        opacity: .4;
+    }
+   
+    .border {
+        min-width: 100%;
+        margin-block: 1em;
+        margin-top: 15em;
+    }
+
+    .align-right {
+        
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    
+    }
+
+    .box {
+        max-height: 5em;
+        padding-inline: 1em;
+    }
+
+    .translucent-box {
+        max-width:100% ;
+    }
+}
+
+/*nav bar*/
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem );
+}
+
+#templogo {
+    margin: 2rem;
+}
+
+.primary-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.primary-nav {
+    list-style-type: none;
+    padding-block: 1rem;
+    padding-inline: clamp(3rem, 5vw,7rem);
+    margin: 0;
+    background: var(--clr-accent) 1;
+    backdrop-filter: blur(1rem);
+    gap: 2rem;
+}
+
+
+.primary-nav a {
+    text-decoration: none;
+}
+.primary-nav a > span {
+    
+    margin-inline-end: 0.5em;
+}
+.mobile-nav {
+    display: none;
+}
+
+.active:hover,
+.active:focus-within {
+    font-size:larger;
+    font-style: italic;
+
+
+}
+
+/* chatroom */
+
+#chatroomBox {
+    max-width: fit-content;
+
+    padding: 3em;
+    margin: 2em;
+}
+
+#chatroomEntry {
+    
+    flex: 1;
+    padding-inline: 2em;
+    margin: 2em;
+    display: flex;
+}
+
+#send-btn {
+    margin-block-end: 1em;
+    width: fit-content;
+    
+}
+
+.muted {
+    opacity: 0.5;
+    font-size: 0.7rem;
+}
+.grid {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em;
+    justify-content: flex-start;
+}
+#bioedit {
+    max-width: 30em;
+}
+#messageArea {
+
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: stretch;
+}
+
+.messages {
+    overflow-y: scroll;
+    flex: 1;
+    width: 100%
+}
+
+
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+@media (max-width: 35em) {
+    .primary-nav {
+        z-index: 1000;
+        position: fixed;
+        inset: 0 0 0 30%;
+        background: var(--clr-accent) 1;
+        --gap: 2.5em;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2em;
+
+        transform: translateX(100%);
+        transition: transform 350ms ease-out
+    }
+    .primary-nav[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav {
+        display: block;
+        z-index: 9999;
+        position: absolute;
+        background: url("/static/images/menutoggler.png");
+        background-repeat: no-repeat;
+        width: 2em;
+        height:  2em;
+        border: 0;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    .active {
+        font-size:1.5rem;
+        padding-block: 0.75em;
+
+
+    }
+
+    #bioedit {
+        max-width: 30em;
+        
+        align-self: center;
+    }
+
+
+}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.table {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+
+.container2 {
+    width: 20em;
+    height: 20em;
+    perspective: 1000px;
+    margin: 1em;
+  }
+  
+  .container2:hover > .card2 {
+    cursor: pointer;
+    transform: rotateY(180deg);
+  }
+  
+  .card2 {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+  }
+  
+  .front2,
+  .back2 {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .front2 {
+    
+    mix-blend-mode: screen;
+    box-shadow: 0px 4px 4px 0px var(--clr-shadow) inset, 0px 4px 4px 0px #BA9065;
+  }
+  
+  .back2 {
+    background-color:var(--clr-primary);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }

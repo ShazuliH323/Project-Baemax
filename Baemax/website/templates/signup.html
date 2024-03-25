@@ -1,0 +1,49 @@
+{% extends "login.html" %} {% block title %}Signup{% endblock %}
+
+
+
+{% block submit %}
+<div >
+    <button type="submit" class="textbox button-text"id="loginbutton">
+        <p>enter</p>
+    </button>
+    
+</div>    
+{% endblock %}
+
+{% block signupemail %}
+<div>
+    <label for="email" class="small-text">email</p>
+    <input type="email" class="form-control | button" id="email" name="email" placeholder="Enter email">
+</div>
+{% endblock %}
+
+{% block signupusername %}
+<div>
+    <label for="text" class="small-text">username</p>
+    <input type="text" class="form-control | button" id="username" name="username" placeholder="Enter username">
+</div>
+{% endblock %}
+
+{% block signuppassword %}
+<div>
+    <label for="password" class="small-text">password</p>
+    <input type="password" class="form-control | button" id="password" name="password" placeholder="Enter password">
+</div>
+{% endblock %}
+
+{% block confirmp %}
+<div>
+    <label for="password" class="small-text">confirm password</p>
+        <input type="password" class="form-control | button" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
+</div>
+{% endblock %}
+
+{% block login %}
+<div class="textbox button-text" id="loginbutton">
+    <containter>
+        <a href="/login">login</a>
+    </containter>
+                    
+</div>
+{% endblock %}

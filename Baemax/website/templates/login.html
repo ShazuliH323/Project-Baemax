@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+
+{% block space %}
+<div class="even-columns">
+    <div>
+    
+        <div>
+            <h1 class="heading big-text italics">Baemax is loading...</h1>
+        </div>
+
+        <div class="border" id ="loginpageinfo">
+            <p class="small-text">Learn more about the creation of baymax</p>
+        </div>
+    </div>
+    
+</div>
+<div class="even-columns">
+    {% block form %}
+    <form method="POST">
+    {% endblock %}
+        
+        <div class="translucent-box">
+            {% block signupusername %}
+            <div>
+                <label for="text" class="small-text">username</p>
+                <input type="text" class="form-control | button" id="username" name="username" placeholder="Enter username">
+            </div>
+            {% endblock %}
+            {% block signupemail %}{% endblock %}
+            {% block signuppassword %}
+            <div>
+                <label for="password" class="small-text">password</p>
+                <input type="password" class="form-control | button" id="password" name="password" placeholder="Enter password">
+            </div>
+            {% endblock %}
+            {% block confirmp %}{% endblock %}
+            <div class="row">
+            
+            
+                {% block submit %}
+                <div >
+                    <button type="submit" class="textbox button-text bg-clr-blue"id="loginbutton">
+                        <p>login</p>
+                    </button>>
+                    
+                </div>                        
+                {% endblock %}
+            
+            </div>
+        {% block formend %}   
+        </form>
+        {% endblock %}
+    </div>
+    <div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

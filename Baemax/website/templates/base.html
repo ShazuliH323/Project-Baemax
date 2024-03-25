@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon_io (1)/favicon.ico" type="image/x-icon">
+  </head>
+  <body >
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+    
+    <header class="primary-header flex header ">
+        
+        {% if user.is_authenticated %}
+            <div class="small-text small-text" id="templogo">
+                <p>{{ user.username }}s account</p>
+                <a class="active small-text"href="/editbio" >
+                    <span aria-hidden="true">Edit</span>
+                </a>
+                    
+            </div>
+        
+        {% else %}
+            <div class="small-text" id="templogo">
+                <p>sign in to meet Baemax</p>
+            </div>
+        {% endif %}
+
+    
+        <button class="mobile-nav">
+        
+        </button>
+
+        <nav>
+            <ul id="primary-nav" data-visible="false" class="primary-nav flex small-text">
+                <li class="active ">
+                    <a href="/" >
+                        <span aria-hidden="true">00</span> Welcome
+                    </a>
+                <li class="active ">
+                    <a href="/login">
+                        <span aria-hidden="true">01</span> Login
+                    </a>
+                <li class="active ">
+                    <a href="/signup">
+                        <span aria-hidden="true">02</span> Sign up
+                    </a>
+                <li class="active ">
+                    <a href="/logout">
+                        <span aria-hidden="true">03</span> Logout
+                    </a>
+
+                {% if user.is_authenticated %}
+                    <li class="active ">
+                            <a href="/dashboard">
+                                <span aria-hidden="true">04</span> Dashboard
+                            </a>   
+                    <li class="active ">
+                        <a href="/chatroom">
+                            <span aria-hidden="true">05</span> Chatroom
+                        </a>
+                    <li class="active ">
+                        <a href="/study">
+                            <span aria-hidden="true">06</span> Study
+                        </a>
+
+                {% endif %}
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        {% block incorrect %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == 'error' %}
+                        
+                            <div class="error small-text bg-clr-red" >
+                                <span>{{ message }}</span>
+                            </div>
+                    
+                        {% else %}
+                    
+                            <div class="error small-text bg-clr-blue">
+                                <span>{{ message }}</span>
+                            </div>
+                        
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <script type="text/javascript" src="{{ url_for('static', filename='fade.js')}}"></script>
+        {% endblock %}
+
+
+        {% block space %}{% endblock %}
+
+        
+
+        
+    </main>
+    {% block javascript %}
+        <script type="text/javascript">
+        function deleteNote(noteId) {
+    fetch("/delete-note", {
+        method: "POST",
+        body: JSON.stringify({ noteId: noteId }),
+    }).then((_res) => {
+        window.location.href = "/dashboard";
+    });
+    }
+    </script>
+    {% endblock %}
+    <script type="text/javascript" src="{{ url_for('static', filename='nav.js')}}"></script>
+  </body>
+</html>
