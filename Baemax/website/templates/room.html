@@ -7,12 +7,15 @@
     <h1 class="heading ">Room code: {{code}}</h1>
     <div id="messageArea" class="translucent-box">
         <h2 class="small-text">Chat room: {{code}}</h2>
-        <div id="not" class="small-text messages"></div>
+        <div id="not" class="small-text messages" ></div>
         
         
         <div class="inputs">
             <input type="textarea" placeholder="message" name="message" id="chatroomEntry" class="translucent-box bg-clr-primary button-text"/>
-            <button type="button" name="send" id="send-btn" class="textbox bg-clr-primary button-text" onClick="sendMessage()">send</button>
+            <form method="POST">
+                <button type="button" name="send" id="send-btn" class="textbox bg-clr-primary button-text" onClick="sendMessage()">send</button>
+            </form>
+            
         </div>
     </div>
 </div>
@@ -49,6 +52,18 @@
 
     const sendMessage = () => {
         console.log("sent")
-    }
+
+        const message = document.getElementById("chatroomEntry");
+        //add message to database
+        if (message.value == "") return;
+        socketio.emit("message", { data: message.value });
+        message.value = "";
+    };
+
 </script>
+{% for msg in messages %}
+<script type="text/javascript">
+  createMessage("{{msg.name}}", "{{msg.message}}");
+</script>
+{% endfor %}
 {% endblock %}

@@ -10,7 +10,27 @@
         <p>This is where all your information will be displayed</p>
     </div>
     
+    <div class="align-center">
+        <h1 class="heading ">Previous convos</h1>
+        <div  class="translucent-box ">
+            <form align="center" method="POST">
+                <h2 class="small-text">BLOG NAME</h2>
 
+                <div align="center">
+                    {% for text in chat %}
+                    <li class="button-text">{{ text.data }} </li>
+                    <button type="button" class="button-text" id="crossbutton"onClick="deleteNote({{ note.id }})"><span id="crossbutton" aria-hidden="true">&#xd7;</button>
+                    {% endfor %}
+                    <label class="translucent-box bg-clr-primary button-text">BLOG TEXTS</label>
+                    
+                </div>
+                
+                
+            </form>
+    
+    
+    
+        </div>
     <div align="center">
 
         <h1 align="center" class="heading big-text">Notes</h1>

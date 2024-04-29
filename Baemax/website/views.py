@@ -7,12 +7,12 @@ import uuid
 import speech_recognition as sr 
 import datetime
 import subprocess
-
+from playsound import playsound 
 import pyttsx3
 import webbrowser
 import pyttsx3
 import speech_recognition
-from playsound import playsound
+
 #webchat stuff
 from flask_socketio import join_room, leave_room , send, SocketIO 
 import random
@@ -259,6 +259,17 @@ def generate_unique_intcode():
 @views.route('/room', methods=['GET','POST'])
 @login_required
 def room():
+    if request.method == 'POST':
+        text = request.form.get('note')
+
+        
+        new_text = Note(data = text)
+        print(new_text)
+        db.session.add(new_text)
+        db.session.commit()
+        flash("text added", category='success')
+
+    
     room = session.get("room")
     name = session.get("name")
     
@@ -381,6 +392,20 @@ def disconnect():#get randbtn
     send({"name": name, "message": "has left the room"}, to=room)
     speak(f"{name} has left the room {room}")
     print(f"{name} has left the room {room}")
+
+@socketio.on("message")
+def message(data):
+    room = session.get("room")
+    if room not in rooms:
+        return 
+    
+    content = {
+        "name": session.get("name"),
+        "message": data["data"]
+    }
+    send(content, to=room)
+    rooms[room]["messages"].append(content)
+    print(f"{session.get('name')} said: {data['data']}")
 
 
 @views.route('/chatroom', methods=['GET','POST'])

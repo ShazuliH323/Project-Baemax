@@ -37,6 +37,8 @@ class User(db.Model, UserMixin):
         qualifications = db.relationship('Qualification')
         is_online = db.Column(db.Boolean, default = False) 
 
-
+class Chat(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    data = db.Column(db.String(10000))
 
 #create multiple databases , many to 1 relationship
